@@ -31,12 +31,10 @@
   },
   "lint-staged": {
     "*.{ts,json,css,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.html": [
-      "html-beautify -qr",
-      "git add"
+      "html-beautify -qr"
     ]
   },
   "private": true,

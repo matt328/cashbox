@@ -30,4 +30,4 @@ export function reducer(state: State | undefined, action: Action): State {
   return budgetReducer(state, action);
 }
 
-export const { selectIds, selectEntities, selectAll, selectTotal } = adapter.getSelectors();
+export const { selectEntities, selectAll, selectTotal } = adapter.getSelectors();

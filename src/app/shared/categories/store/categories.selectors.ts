@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { arrayToTree, Item } from 'performant-array-to-tree';
-import * as R from 'ramda';
+import { props } from 'ramda';
 import { CategoryUI, State } from './categories.interfaces';
 import { adapter } from './categories.reducer';
 
@@ -16,6 +16,6 @@ export const selectSendingCategories = createSelector(getCategoriesState, (state
 
 export const selectCategoriesErrorMessage = createSelector(getCategoriesState, (state: State) => state.errorMessage);
 
-export const selectCategoryUIs = createSelector(getCategoriesState, (state: State, props: { ids: string[] }) => {
-  return arrayToTree(R.props(props.ids, state.entities) as Item[], { dataField: null }) as CategoryUI[];
+export const selectCategoryUIs = createSelector(getCategoriesState, (state: State, properties: { ids: string[] }) => {
+  return arrayToTree(props(properties?.ids, state.entities) as Item[], { dataField: null }) as CategoryUI[];
 });

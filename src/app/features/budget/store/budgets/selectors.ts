@@ -2,10 +2,9 @@ import { createSelector } from '@ngrx/store';
 import { selectPathParams } from '@shared/router.selectors';
 import { selectFeatureState } from '../interfaces';
 import { ClientBudget } from './interfaces';
-import { selectAll, selectEntities, selectIds, selectTotal } from './reducer';
+import { selectAll, selectEntities, selectTotal } from './reducer';
 
-export const selectBudgetsState = createSelector(selectFeatureState, (s) => s.budgets);
-export const selectBudgetIds = createSelector(selectBudgetsState, selectIds);
+export const selectBudgetsState = createSelector(selectFeatureState, (s) => s?.budgets);
 export const selectBudgetEntities = createSelector(selectBudgetsState, selectEntities);
 export const selectAllBudgets = createSelector(selectBudgetsState, selectAll);
 export const selectBudgetTotal = createSelector(selectBudgetsState, selectTotal);

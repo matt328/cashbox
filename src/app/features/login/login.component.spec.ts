@@ -1,5 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { LoadingEventsService } from '@core/services';
 import { AuthService, AUTH_SERVICE } from '@core/services/auth.service.interface';
@@ -15,7 +15,7 @@ describe('LoginComponent', () => {
   let loginService: Mock<AuthService>;
 
   describe('when login success', () => {
-    beforeEach(async(() => {
+    beforeEach(() => {
       loginService = new Mock<AuthService>({
         signInWithPopup: () => Promise.resolve(true),
       });
@@ -36,10 +36,8 @@ describe('LoginComponent', () => {
           { provide: AUTH_SERVICE, useValue: loginService.Object },
         ],
         schemas: [NO_ERRORS_SCHEMA],
-      }).compileComponents();
-    }));
+      });
 
-    beforeEach(() => {
       fixture = TestBed.createComponent(LoginComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
@@ -59,7 +57,7 @@ describe('LoginComponent', () => {
   });
 
   describe('when login failure', () => {
-    beforeEach(async(() => {
+    beforeEach(() => {
       loginService = new Mock<AuthService>({
         signInWithPopup: () => Promise.resolve(false),
       });
@@ -80,10 +78,8 @@ describe('LoginComponent', () => {
           { provide: AUTH_SERVICE, useValue: loginService.Object },
         ],
         schemas: [NO_ERRORS_SCHEMA],
-      }).compileComponents();
-    }));
+      });
 
-    beforeEach(() => {
       fixture = TestBed.createComponent(LoginComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();

@@ -9,12 +9,10 @@ import { ClientBudget } from '../budgets/interfaces';
 import { selectMostRecentBudget } from '../budgets/selectors';
 import { selectFeatureState } from '../interfaces';
 import { BudgetItem, ClientBudgetItem } from './interfaces';
-import { selectAll, selectEntities, selectIds, selectTotal } from './reducer';
+import { selectAll, selectEntities, selectTotal } from './reducer';
 import { categoryUIToClientBudgetItem } from './utils';
 
 const selectBudgetItemState = createSelector(selectFeatureState, (s) => s.budgetItems);
-
-export const selectBudgetItemIds = createSelector(selectBudgetItemState, selectIds);
 export const selectBudgetItemEntities = createSelector(selectBudgetItemState, selectEntities);
 export const selectAllBudgetItems = createSelector(selectBudgetItemState, selectAll);
 export const selectBudgetItemTotal = createSelector(selectBudgetItemState, selectTotal);
