@@ -1,0 +1,11 @@
+@import './budget-list/budget-item-group/budget-item-group.component.theme';
+@import './budget-list/budget-item/budget-item.component.theme';
+@import './month-selector/month-selector-component.theme';
+@import './budget-list/budget-item-list/budget-item-list.component.theme';
+
+@mixin budget-theme($theme) {
+  @include budget-item-group-theme($app-theme);
+  @include budget-item-theme($app-theme);
+  @include month-selector-theme($app-theme);
+  @include budget-item-list-theme($app-theme);
+}

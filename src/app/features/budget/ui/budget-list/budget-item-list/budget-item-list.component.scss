@@ -1,0 +1,40 @@
+.budget-item-list {
+  .header {
+    display: grid;
+    grid-template-columns: auto 100px 100px 100px;
+    line-height: 24px;
+    height: 32px;
+    align-content: center;
+    align-items: center;
+    padding: 0 24px;
+    font-weight: 500;
+    padding-left: 40px;
+
+    .currency-header {
+      justify-self: end;
+    }
+
+    .category-row {
+      .category-button {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s linear 300ms, opacity 300ms;
+
+        .add-icon {
+          height: 20px;
+        }
+      }
+    }
+
+    &:hover {
+      .category-row {
+        .category-button {
+          visibility: visible;
+          opacity: 1;
+          transition: visibility 0s linear 0s, opacity 300ms;
+        }
+      }
+    }
+  }
+
+}

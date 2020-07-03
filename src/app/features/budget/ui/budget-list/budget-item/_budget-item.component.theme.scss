@@ -1,0 +1,20 @@
+@mixin budget-item-theme($theme) {
+  $background-palette: map-get($theme, background);
+  $foreground-palette: map-get($theme, foreground);
+
+  $background-color: map-get($background-palette, hover);
+  $divider-color: map-get($foreground-palette, divider);
+
+  $handset: map-get($theme, handset);
+
+  .budget-item {
+    @media #{$handset} {
+      grid-template-columns: auto 100px 100px !important;
+
+      .no-handset {
+        display: none !important;
+        visibility: hidden;
+      }
+    }
+  }
+}

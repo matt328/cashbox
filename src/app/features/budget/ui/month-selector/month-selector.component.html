@@ -1,0 +1,19 @@
+<span class="month-selector">
+  <button mat-icon-button
+    (click)="previousMonth()">
+    <mat-icon [svgIcon]="'chevron-left'"></mat-icon>
+  </button>
+  <mat-form-field>
+    <mat-select [value]="selectedMonth?.id"
+      (selectionChange)="selectionChange($event)">
+      <mat-option *ngFor="let month of availableMonths"
+        [value]="month.id">
+        {{month.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-icon-button
+    (click)="nextMonth()">
+    <mat-icon [svgIcon]="'chevron-right'"></mat-icon>
+  </button>
+</span>

@@ -1,0 +1,40 @@
+@mixin budget-item-group-theme($theme) {
+  $background-palette: map-get($theme, background);
+  $foreground-palette: map-get($theme, foreground);
+
+  $background-color: map-get($background-palette, hover);
+  $divider-color: map-get($foreground-palette, divider);
+
+  $handset: map-get($theme, handset);
+
+  .expansion-panel {
+    @media #{$handset} {
+      .grid-container {
+        grid-template-columns: 40px auto 100px 100px !important;
+      }
+
+      .no-handset {
+        display: none;
+        visibility: hidden;
+      }
+    }
+
+    .list-item {
+      border-bottom: solid 1px $divider-color;
+    }
+
+    .expansion-header {
+      background-color: $background-color;
+      border-bottom: solid 1px $divider-color;
+      border-top: solid 1px $divider-color;
+
+      &:hover {
+        background-color: $background-color;
+      }
+
+      &.mat-expanded {
+        background-color: $background-color !important;
+      }
+    }
+  }
+}

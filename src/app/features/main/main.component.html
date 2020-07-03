@@ -1,0 +1,39 @@
+<span class="cbx-main">
+  <router-outlet name="toolbar"></router-outlet>
+  <mat-sidenav-container class="cbx-main sidenav-container">
+
+    <mat-sidenav #drawer
+      class="sidenav"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+
+      <mat-nav-list>
+        <a mat-list-item
+          (click)="drawer.mode === 'side' || drawer.close()"
+          routerLink="/budgets"
+          routerLinkActive="active-link">
+          <mat-icon mat-list-icon
+            svgIcon="home-currency-usd"></mat-icon>
+          <span matLine>Budgets</span>
+        </a>
+        <a mat-list-item
+          (click)="drawer.mode === 'side' || drawer.close()"
+          routerLink="/accounts"
+          routerLinkActive="active-link">
+          <mat-icon mat-list-icon
+            svgIcon="bank-outline"></mat-icon>
+          <span matLine>Accounts</span>
+        </a>
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+      <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</span>

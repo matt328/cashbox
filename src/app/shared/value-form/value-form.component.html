@@ -1,0 +1,27 @@
+<form [formGroup]="valueForm"
+  novalidate
+  (ngSubmit)="onSubmit()"
+  class="mat-typography value-form">
+  <mat-card>
+
+    <mat-card-content>
+      <mat-form-field class="value-name-input">
+        <input matInput
+          [placeholder]="name"
+          formControlName="value" />
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button type="button"
+        mat-button
+        (click)="cancel.emit()">Cancel</button>
+      <button [disabled]="valueForm.pristine"
+        mat-button
+        color="primary">
+        Create
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+</form>

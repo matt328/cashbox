@@ -1,0 +1,16 @@
+<span class="inline-edit">
+  <div class="display"
+    *ngIf='!editMode'
+    (click)='editMode=true'>{{ value | currency }}</div>
+  <input class="value-input"
+    matInput
+    #textInput
+    step="0.01"
+    *ngIf='editMode'
+    (focusout)="changeValue()"
+    [(ngModel)]='value'
+    cbxAutofocus
+    type='number'
+    (keydown.enter)="handleEnter($event)"
+    (focusout)="editMode=false">
+</span>

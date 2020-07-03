@@ -1,0 +1,5 @@
+@import './main/main.component.theme';
+
+@mixin features-theme($theme) {
+  @include main-theme($theme);
+}

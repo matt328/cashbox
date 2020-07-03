@@ -1,0 +1,14 @@
+<span class="budget-item">
+  <span class="grid-item category-name">{{ budgetItem?.categoryName }}</span>
+  <span class="grid-item currency">
+    <cbx-inline-edit [value]="budgetItem?.amount"
+      (valueChanged)="updateBudgetItemAmount($event)">
+    </cbx-inline-edit>
+  </span>
+  <span class="grid-item currency no-handset">
+    <span>{{ budgetItem?.activity | currency}}</span>
+  </span>
+  <span class="grid-item currency">
+    <span [ngClass]="{'red-pill': budgetItem.available <= 0, 'green-pill': budgetItem.available > 0}">{{ budgetItem.available | currency}}</span>
+  </span>
+</span>

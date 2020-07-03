@@ -1,0 +1,76 @@
+@import '~@angular/material/_theming';
+@import './palette';
+@import './components.theme';
+
+$custom-typography: mat-typography-config($font-family: 'Roboto, "Helvetica Neue", sans-serif',
+  $display-4: mat-typography-level(112px, 112px, 300),
+  $display-3: mat-typography-level(56px, 56px, 400),
+  $display-2: mat-typography-level(45px, 48px, 400),
+  $display-1: mat-typography-level(34px, 40px, 400),
+  $headline: mat-typography-level(24px, 32px, 400),
+  $title: mat-typography-level(20px, 32px, 400),
+  $subheading-2: mat-typography-level(16px, 28px, 400),
+  $subheading-1: mat-typography-level(15px, 24px, 400),
+  $body-2: mat-typography-level(14px, 24px, 500),
+  $body-1: mat-typography-level(14px, 20px, 400),
+  $caption: mat-typography-level(12px, 20px, 400),
+  $button: mat-typography-level(14px, 14px, 500),
+  $input: mat-typography-level(16px, 1.125, 400));
+
+@include mat-core($custom-typography);
+
+$app-primary: mat-palette($md-primary);
+$app-accent: mat-palette($md-accent);
+$app-warn: mat-palette($md-warn);
+
+@function generate-state-colors($color) {
+  @return (activated: rgba($color, 0.12),
+    base: $color,
+    dragged: rgba($color, 0.08),
+    focus: rgba($color, 0.12),
+    hover: rgba($color, 0.04),
+    pressed: rgba($color, 0.16),
+    selected: rgba($color, 0.08));
+}
+
+@function extend-mat-light-theme($primary, $accent, $error, $status) {
+  $mat-theme: mat-light-theme($primary, $accent, $error);
+
+  @return map-merge($mat-theme, (primary-states: generate-state-colors(mat-color($primary)),
+      accent-states: generate-state-colors(mat-color($accent)),
+      alert-states: generate-state-colors(map-get($status, alert)),
+      warn-states: generate-state-colors(map-get($status, warn)),
+      error-states: generate-state-colors(mat-color($error)),
+      success-states: generate-state-colors(map-get($status, success)),
+      std-white: map-get($status, std-white),
+      std-black: map-get($status, std-black),
+      handset: "(max-width: 600px) and (orientation: portrait)"
+    ));
+}
+
+@function generate-material-light-theme($primaryPalette, $accentPalette, $warnPalette, $statusColors, $lightBackground:#ffffff) {
+  $light-theme: extend-mat-light-theme($primaryPalette, $accentPalette, $warnPalette, $statusColors);
+
+  $mat-light-theme-background-overrides: ('background': $lightBackground,
+    );
+  $mat-light-theme-foreground-overrides: ('disabled-button': rgba(black, 0.38),
+      'icon': rgba(black, 0.6),
+      'icons': rgba(black, 0.6),
+    );
+
+  $background-map: map-get($light-theme, background);
+  $foreground-map: map-get($light-theme, foreground);
+  $merged-light-background: map-merge($background-map, $mat-light-theme-background-overrides);
+  $merged-light-foreground: map-merge($foreground-map, $mat-light-theme-foreground-overrides);
+
+  $light-theme: map-merge($light-theme,
+      ('background': $merged-light-background,
+        'foreground': $merged-light-foreground));
+
+  @return $light-theme;
+}
+
+$app-theme: generate-material-light-theme($app-primary, $app-accent, $app-warn, $status-colors);
+
+@include angular-material-theme($app-theme);
+@include components-theme($app-theme);

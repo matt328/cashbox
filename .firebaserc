@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cashbox-dev1": {
+      "hosting": {
+        "cashbox": [
+          "cashbox-dev1"
+        ]
+      }
+    }
+  }
+}

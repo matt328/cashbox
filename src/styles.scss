@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import './theming/theme';
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+$success-states: map-get($app-theme, success-states);
+$base: map-get($success-states, base);
+
+$alert-states: map-get($app-theme, error-states);
+$alert-color: map-get($alert-states, base);
+
+$warn-states: map-get($app-theme, warn-states);
+$warn-color: map-get($warn-states, base);
+
+.basic-container {
+  height: 100%;
+}
+
+.budget-group-backdrop {
+  background-color: rgba(0, 0, 0, 0.33);
+}
+
+.snackbar-error {
+  background-color: $warn-color;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.mat-simple-snackbar-action {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.green-pill {
+  padding: 0 10px;
+  border-radius: 10px;
+  background-color: $base;
+  color: white;
+}
+
+.red-pill {
+  padding: 0 10px;
+  border-radius: 10px;
+  background-color: $alert-color;
+  color: white;
+}

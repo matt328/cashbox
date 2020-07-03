@@ -1,0 +1,27 @@
+@mixin main-theme($theme) {
+  $primary: map-get($theme, primary);
+  $handset: map-get($theme, handset);
+
+  .cbx-main {
+
+    &.sidenav-container {
+      @media #{$handset} {
+        height: calc(100vh - 56px);
+      }
+
+      height: calc(100vh - 64px);
+    }
+
+    .primary-color {
+      background-color: mat-color($primary);
+      color: mat-contrast($primary, 500);
+      background-size: cover;
+      height: 112px;
+    }
+
+    .active-link {
+      color: mat-color($primary) !important;
+      pointer-events: none !important;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@mixin month-selector-theme($theme) {
+  $primary-palette: map-get($theme, primary);
+  $background-palette: map-get($theme, background);
+  $foreground-palette: map-get($theme, foreground);
+
+  $primary-color: map-get($primary-palette, primary);
+  $background-color: map-get($background-palette, hover);
+  $divider-color: map-get($foreground-palette, divider);
+
+  .month-selector {
+    background-color: $primary-color;
+  }
+}

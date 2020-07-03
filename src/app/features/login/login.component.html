@@ -1,0 +1,18 @@
+<div class="cbx-login">
+  <div class="loader">
+    <div class="img-size">
+      <ng-content></ng-content>
+    </div>
+    <div class="title-container">
+      <h1 class="title">Cashbox</h1>
+    </div>
+    <div class="login-container">
+      <img class="img-width"
+        data-e2e="login-button"
+        (click)="login()"
+        on-mousedown="down()"
+        on-mouseup="up()"
+        [src]="currentImage" />
+    </div>
+  </div>
+</div>

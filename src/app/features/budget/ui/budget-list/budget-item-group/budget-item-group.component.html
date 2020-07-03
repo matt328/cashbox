@@ -1,0 +1,45 @@
+<mat-expansion-panel class="expansion-panel"
+  #matExpansionPanel
+  hideToggle
+  [expanded]="'true'">
+  <mat-expansion-panel-header class="expansion-header"
+    (click)="expandPanel(matExpansionPanel, $event)"
+    [collapsedHeight]="'36px'"
+    [expandedHeight]="'36px'">
+    <span class="grid-container">
+      <button mat-icon-button
+        (click)="matExpansionPanel.toggle()">
+        <mat-icon class="chevron"
+          svgIcon="chevron-right">
+        </mat-icon>
+      </button>
+      <span class="category-name">
+        <span class="fake-link">{{ budgetItem.categoryName }}</span>
+        <button mat-icon-button
+          class="add-button-container"
+          [satPopoverAnchor]='popover'
+          (click)="popover.toggle()"
+          matTooltip="Add a new line item">
+          <mat-icon class="add-button"
+            svgIcon="playlist-plus"></mat-icon>
+        </button>
+      </span>
+      <span class="currency">{{ budgetItem.amount | currency }}</span>
+      <span class="currency no-handset">{{budgetItem.activity | currency}}</span>
+      <span [ngClass]="{'currency': true, 'red-pill': budgetItem.available <= 0, 'green-pill': budgetItem.available > 0}">{{ budgetItem.available | currency}}</span>
+    </span>
+  </mat-expansion-panel-header>
+  <cbx-budget-item *ngFor="let child of budgetItem.children"
+    [budgetItem]="child"
+    (budgetedAmountUpdated)="budgetItemAmountUpdated.emit($event)">
+  </cbx-budget-item>
+  <sat-popover #popover
+    verticalAlign="below"
+    [hasBackdrop]="true"
+    backdropClass="budget-group-backdrop">
+    <cbx-value-form (cancel)="popover.close()"
+      [name]="'Name'"
+      (valueCreated)="newBudgetItemRequested.emit({categoryId: budgetItem.categoryId, name: $event})">
+    </cbx-value-form>
+  </sat-popover>
+</mat-expansion-panel>
