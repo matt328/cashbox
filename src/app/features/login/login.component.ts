@@ -1,8 +1,6 @@
-import { Component, Inject, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingEventsService } from '@core/services';
-import { AuthService, AUTH_SERVICE } from '@core/services/auth.service.interface';
-import 'firebase/auth';
+import { FirebaseAuthService, LoadingEventsService } from '@core/services';
 
 @Component({
   templateUrl: './login.component.html',
@@ -15,7 +13,7 @@ export class LoginComponent implements OnInit {
   currentImage = this.normalImagePath;
 
   constructor(
-    @Inject(AUTH_SERVICE) private authService: AuthService,
+    private authService: FirebaseAuthService,
     private loadingEventsService: LoadingEventsService,
     private router: Router,
     private ngZone: NgZone

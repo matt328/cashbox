@@ -11,13 +11,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProdModule } from '@core/prod.module';
-import { MockModule } from '@core/services/mock';
 import { EffectsModule } from '@ngrx/effects';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { CustomSerializer } from '@shared/router-serializer';
+import { CustomSerializer } from '@shared/router';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -58,7 +56,6 @@ import { MainComponent } from './features/main/main.component';
     }),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router', serializer: CustomSerializer }),
     EffectsModule.forRoot([]),
-    environment.mock ? MockModule : ProdModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

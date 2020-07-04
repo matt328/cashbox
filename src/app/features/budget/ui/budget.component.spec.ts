@@ -1,6 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CategoriesService } from '@shared/categories/store/categories.service';
+import { CategoriesService } from '@shared/categories';
 import { Mock } from 'ts-mocks';
 import { BudgetComponent } from './budget.component';
 import { BudgetFacade } from './budget.facade';

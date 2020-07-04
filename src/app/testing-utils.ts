@@ -34,8 +34,8 @@ export const mockFirestoreEvents = <T extends { id: string }>(items: Items<T>): 
   const mockThingRemoves = items.removes ? items.removes.map(mockRemove) : [];
   const mockThingUpdates = items.updates ? items.updates.map(mockAdd) : [];
   return new Mock<AngularFirestore>({
-    collection: <T>(name: string) => ({
-      stateChanges: <T>(changeType: DocumentChangeType[]) => {
+    collection: <U>(name: string) => ({
+      stateChanges: <V>(changeType: DocumentChangeType[]) => {
         if (changeType.includes('added')) {
           return mockThingAdds.length > 0 ? of(mockThingAdds) : EMPTY;
         } else if (changeType.includes('removed')) {
@@ -45,5 +45,6 @@ export const mockFirestoreEvents = <T extends { id: string }>(items: Items<T>): 
         }
       },
     }),
+    // tslint:disable-next-line: no-any
   } as any);
 };

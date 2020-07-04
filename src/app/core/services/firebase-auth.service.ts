@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { User } from '@core/models';
-import { auth, User as FirebaseUser } from 'firebase';
+import { auth, User as FirebaseUser } from 'firebase/app';
 import { BehaviorSubject, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AuthService } from '../auth.service.interface';
+import { User } from '../models';
 
 const toUser = pipe(
   map((fb: FirebaseUser | null): User | null => {
@@ -22,7 +21,7 @@ const toUser = pipe(
 );
 
 @Injectable()
-export class FirebaseAuthService implements AuthService {
+export class FirebaseAuthService {
   private user = new BehaviorSubject<FirebaseUser | null>(null);
   user$ = this.user.pipe(toUser);
 

@@ -1,4 +1,4 @@
-import { CategoryUI } from '@shared/categories/store/categories.interfaces';
+import { CategoryUI } from '@shared/categories';
 import { BudgetItem, ClientBudgetItem } from './interfaces';
 
 /**

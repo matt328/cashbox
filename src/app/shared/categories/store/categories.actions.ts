@@ -1,4 +1,4 @@
-import { Update } from '@ngrx/entity/src/models';
+import { Update } from '@ngrx/entity';
 import { createAction, props } from '@ngrx/store';
 import { Category } from './categories.interfaces';
 

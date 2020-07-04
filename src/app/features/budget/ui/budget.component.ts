@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-import { CategoriesService } from '@shared/categories/store/categories.service';
+import { CategoriesService } from '@shared/categories';
 import { BudgetFacade } from './budget.facade';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DocumentChangeAction } from '@angular/fire/firestore/interfaces';
-import { Update } from '@ngrx/entity/src/models';
+import { Update } from '@ngrx/entity';
 import { Store } from '@ngrx/store';
 import 'firebase/firestore';
 import { Observable, Subscription, throwError } from 'rxjs';

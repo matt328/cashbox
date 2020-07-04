@@ -1,8 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { LoadingEventsService } from '@core/services';
-import { AuthService, AUTH_SERVICE } from '@core/services/auth.service.interface';
+import { FirebaseAuthService, LoadingEventsService } from '@core/services';
 import { Mock } from 'ts-mocks';
 import { LoginComponent } from './login.component';
 
@@ -12,11 +11,11 @@ describe('LoginComponent', () => {
 
   let loadingEventsService: Mock<LoadingEventsService>;
   let router: Mock<Router>;
-  let loginService: Mock<AuthService>;
+  let loginService: Mock<FirebaseAuthService>;
 
   describe('when login success', () => {
     beforeEach(() => {
-      loginService = new Mock<AuthService>({
+      loginService = new Mock<FirebaseAuthService>({
         signInWithPopup: () => Promise.resolve(true),
       });
 
@@ -33,7 +32,7 @@ describe('LoginComponent', () => {
         providers: [
           { provide: LoadingEventsService, useValue: loadingEventsService.Object },
           { provide: Router, useValue: router.Object },
-          { provide: AUTH_SERVICE, useValue: loginService.Object },
+          { provide: FirebaseAuthService, useValue: loginService.Object },
         ],
         schemas: [NO_ERRORS_SCHEMA],
       });
@@ -58,7 +57,7 @@ describe('LoginComponent', () => {
 
   describe('when login failure', () => {
     beforeEach(() => {
-      loginService = new Mock<AuthService>({
+      loginService = new Mock<FirebaseAuthService>({
         signInWithPopup: () => Promise.resolve(false),
       });
 
@@ -75,7 +74,7 @@ describe('LoginComponent', () => {
         providers: [
           { provide: LoadingEventsService, useValue: loadingEventsService.Object },
           { provide: Router, useValue: router.Object },
-          { provide: AUTH_SERVICE, useValue: loginService.Object },
+          { provide: FirebaseAuthService, useValue: loginService.Object },
         ],
         schemas: [NO_ERRORS_SCHEMA],
       });

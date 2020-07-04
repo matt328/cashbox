@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { selectPathParams } from '@shared/router.selectors';
+import { selectPathParams } from '@shared/router';
 import { selectFeatureState } from '../interfaces';
 import { ClientBudget } from './interfaces';
 import { selectAll, selectEntities, selectTotal } from './reducer';

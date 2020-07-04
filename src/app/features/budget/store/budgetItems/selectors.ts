@@ -1,8 +1,7 @@
 import { Params } from '@angular/router';
 import { createSelector } from '@ngrx/store';
-import { CategoryUI, State } from '@shared/categories/store/categories.interfaces';
-import { getCategoriesState } from '@shared/categories/store/categories.selectors';
-import { selectPathParams } from '@shared/router.selectors';
+import { CategoryUI, getCategoriesState, State } from '@shared/categories';
+import { selectPathParams } from '@shared/router';
 import { arrayToTree, Item } from 'performant-array-to-tree';
 import { groupBy, props } from 'ramda';
 import { ClientBudget } from '../budgets/interfaces';
