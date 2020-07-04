@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
-import { ClientBudgetItem } from '../../../store/budgetItems/interfaces';
+import { ClientBudgetItem } from '@core/models';
 
 const defaultBudgetItem: ClientBudgetItem = {
   id: '',

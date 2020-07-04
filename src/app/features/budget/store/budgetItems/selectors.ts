@@ -1,13 +1,12 @@
 import { Params } from '@angular/router';
+import { BudgetItem, ClientBudget, ClientBudgetItem } from '@core/models';
 import { createSelector } from '@ngrx/store';
 import { CategoryUI, getCategoriesState, State } from '@shared/categories';
 import { selectPathParams } from '@shared/router';
 import { arrayToTree, Item } from 'performant-array-to-tree';
 import { groupBy, props } from 'ramda';
-import { ClientBudget } from '../budgets/interfaces';
 import { selectMostRecentBudget } from '../budgets/selectors';
 import { selectFeatureState } from '../interfaces';
-import { BudgetItem, ClientBudgetItem } from './interfaces';
 import { selectAll, selectEntities, selectTotal } from './reducer';
 import { categoryUIToClientBudgetItem } from './utils';
 

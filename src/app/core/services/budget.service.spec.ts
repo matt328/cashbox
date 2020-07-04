@@ -1,9 +1,9 @@
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ClientBudget } from '@core/models';
 import { Update } from '@ngrx/entity';
 import { Mock } from 'ts-mocks';
 import { createTimestamp, mockFirestoreEvents } from '../../testing-utils';
 import { BudgetService } from './budget.service';
-import { ClientBudget } from './store/budgets/interfaces';
 
 describe('Budget Service', () => {
   let angularFirestore: Mock<AngularFirestore>;

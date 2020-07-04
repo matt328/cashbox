@@ -1,6 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ClientBudgetItem } from '../../../store/budgetItems/interfaces';
+import { ClientBudgetItem } from '@core/models';
 import { BudgetItemComponent } from './budget-item.component';
 
 describe('BudgetItemComponent', () => {

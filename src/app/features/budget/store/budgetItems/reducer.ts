@@ -1,8 +1,9 @@
+import { BudgetItem } from '@core/models';
 import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 import { without } from 'ramda';
 import * as Actions from './actions';
-import { BudgetItem, State } from './interfaces';
+import { State } from './interfaces';
 
 export const adapter: EntityAdapter<BudgetItem> = createEntityAdapter<BudgetItem>();
 

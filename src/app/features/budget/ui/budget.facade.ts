@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { GlobalState } from '@core/models';
+import { ClientBudgetItem, GlobalState } from '@core/models';
 import { select, Store } from '@ngrx/store';
 import { observeCategories, stopObservingCategories } from '@shared/categories';
 import { selectPathParam } from '@shared/router';
 import { Subscription } from 'rxjs';
 import { filter, pairwise, startWith, take } from 'rxjs/operators';
 import { startObservingItems, stopObservingItems } from '../store/budgetItems/actions';
-import { ClientBudgetItem } from '../store/budgetItems/interfaces';
 import { createNextBudget, setCurrentBudget, startObserving, stopObserving } from '../store/budgets/actions';
 import { selectBudgetSummaries, selectCurrentBudget, selectCurrentClientBudgetItems } from '../store/selectors';
 

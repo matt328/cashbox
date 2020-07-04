@@ -1,7 +1,8 @@
+import { ClientBudget } from '@core/models';
 import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 import * as Actions from './actions';
-import { ClientBudget, State } from './interfaces';
+import { State } from './interfaces';
 
 export const adapter: EntityAdapter<ClientBudget> = createEntityAdapter<ClientBudget>();
 

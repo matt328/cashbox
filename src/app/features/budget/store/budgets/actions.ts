@@ -1,6 +1,6 @@
+import { ClientBudget } from '@core/models';
 import { Update } from '@ngrx/entity';
 import { createAction, props } from '@ngrx/store';
-import { ClientBudget } from './interfaces';
 
 export const startObserving = createAction('[Budgets] Start Observing');
 export const stopObserving = createAction('[Budgets] Stop Observing');

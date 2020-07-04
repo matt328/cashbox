@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ClientBudgetItem } from '../../../store/budgetItems/interfaces';
+import { ClientBudgetItem } from '@core/models';
 
 const defaultBudgetItem: ClientBudgetItem = {
   id: '',

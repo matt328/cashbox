@@ -1,7 +1,7 @@
+import { ClientBudget } from '@core/models';
 import { createSelector } from '@ngrx/store';
 import { selectPathParams } from '@shared/router';
 import { selectFeatureState } from '../interfaces';
-import { ClientBudget } from './interfaces';
 import { selectAll, selectEntities, selectTotal } from './reducer';
 
 export const selectBudgetsState = createSelector(selectFeatureState, (s) => s?.budgets);

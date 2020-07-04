@@ -1,7 +1,7 @@
+import { BudgetItem } from '@core/models';
 import { Update } from '@ngrx/entity';
 import { createAction, props } from '@ngrx/store';
 import { Category } from '@shared/categories';
-import { BudgetItem } from './interfaces';
 
 export const startObservingItems = createAction('[Budgets] Start Observing Items', props<{ budgetId: string }>());
 export const stopObservingItems = createAction('[Budgets] Stop Observing Items', props<{ budgetId: string }>());

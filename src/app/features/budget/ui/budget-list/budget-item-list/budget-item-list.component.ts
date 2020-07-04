@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { ClientBudgetItem } from '../../../store/budgetItems/interfaces';
+import { ClientBudgetItem } from '@core/models';
 import { BudgetItemListFacade } from './budget-item-list.facade';
 
 @Component({

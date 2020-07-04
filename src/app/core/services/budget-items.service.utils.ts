@@ -2,7 +2,7 @@ import { AngularFirestore, DocumentChangeAction, DocumentChangeType } from '@ang
 import { Update } from '@ngrx/entity';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { BudgetItem } from './store/budgetItems/interfaces';
+import { BudgetItem } from '../models';
 
 export const CollectionName = 'budgetitems';
 

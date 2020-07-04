@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
-import { ClientBudget } from '../../store/budgets/interfaces';
+import { ClientBudget } from '@core/models';
 
 @Component({
   selector: 'cbx-month-selector',

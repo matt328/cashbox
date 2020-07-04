@@ -4,8 +4,8 @@ import { Transaction } from '@firebase/firestore-types';
 import { Update } from '@ngrx/entity';
 import { Category, PATH as CategoriesPath } from '@shared/categories';
 import { from, Observable, Subject, Subscription } from 'rxjs';
+import { BudgetItem } from '../models';
 import { CollectionName, createBudgetItemObservable } from './budget-items.service.utils';
-import { BudgetItem } from './store/budgetItems/interfaces';
 
 type SubjectTracker = {
   [key: string]: { [key: string]: Subscription };

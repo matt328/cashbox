@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
+import { Budget, ClientBudget } from '@core/models';
 import { Update } from '@ngrx/entity';
 import { Observable, Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
-import { Budget, ClientBudget } from './store/budgets/interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class BudgetService {

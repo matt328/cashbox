@@ -1,5 +1,5 @@
+import { BudgetItem, ClientBudgetItem } from '@core/models';
 import { CategoryUI } from '@shared/categories';
-import { BudgetItem, ClientBudgetItem } from './interfaces';
 
 /**
  * Matches up BudgetItems with the corresponding category heirarchy.

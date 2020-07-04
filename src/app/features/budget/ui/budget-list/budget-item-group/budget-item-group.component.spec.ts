@@ -1,6 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ClientBudgetItem } from '../../../store/budgetItems/interfaces';
+import { ClientBudgetItem } from '@core/models';
 import { BudgetItemGroupComponent } from './budget-item-group.component';
 
 const defaultBudgetItem: ClientBudgetItem = {
