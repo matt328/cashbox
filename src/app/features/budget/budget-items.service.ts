@@ -18,6 +18,13 @@ export class BudgetItemsService {
   readonly budgetItemUpdates$ = new Subject<Update<BudgetItem>[]>();
   private itemObservables: SubjectTracker = {};
 
+  // TODO Abstract AngularFirestore
+  // 1. define entire interface including models, DataAccess
+  // 2. Determine which methods need abstractions over
+  // 2. Create FirebaseDataAccess
+  // 3. Replace AngularFirestore with DataAccess
+  // 4. Create MockDataAccess
+
   constructor(private db: AngularFirestore) {}
 
   private hasEntry(id: string, changeType: DocumentChangeType): boolean {

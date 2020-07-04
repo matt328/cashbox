@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BudgetItem } from './store/budgetItems/interfaces';
 
+// TODO Abstract AngularFireStore
+
 export const CollectionName = 'budgetitems';
 
 export const toBudgetItem = (dc: DocumentChangeAction<BudgetItem>): BudgetItem => ({

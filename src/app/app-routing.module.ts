@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
-import { AngularFireAuthGuard, AngularFireAuthGuardModule, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { RouterModule, Routes } from '@angular/router';
+import { authGuardPipeFn, AUTH_GUARD } from '@core/guards';
 import { LoginComponent } from './features/login/login.component';
 import { MainComponent } from './features/main/main.component';
-
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: '',
     component: MainComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
+    canActivate: [AUTH_GUARD],
+    data: { authGuardPipe: authGuardPipeFn },
 
     children: [
       { path: '', redirectTo: 'budgets', pathMatch: 'full' },
@@ -33,9 +31,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [AngularFireAuthGuardModule, RouterModule.forRoot(routes, { useHash: false, enableTracing: false })],
+  imports: [RouterModule.forRoot(routes, { useHash: false, enableTracing: false })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-
-// TODO: Abstract AngularFireAuthGuardModule
