@@ -1,9 +1,12 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary"
+  class="cbx-budget-toolbar mat-elevation-z4">
   <button mat-icon-button
     (click)="sidenavService.sidenav?.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
+  <h2>Budgets</h2>
   <cbx-month-selector pageToolbar
+    class="month-selector"
     [availableMonths]="(budgetFacade.budgetSummaries$ | async)!"
     [selectedMonth]="(budgetFacade.currentBudget$ | async)!"
     (monthSelected)="budgetFacade.selectBudget($event)">
