@@ -19,7 +19,7 @@ $custom-typography: mat-typography-config($font-family: 'Roboto, "Helvetica Neue
 
 @include mat-core($custom-typography);
 
-$app-primary: mat-palette($md-primary);
+$app-primary: mat-palette($green-palette);
 $app-accent: mat-palette($md-accent);
 $app-warn: mat-palette($md-warn);
 
@@ -70,7 +70,51 @@ $app-warn: mat-palette($md-warn);
   @return $light-theme;
 }
 
-$app-theme: generate-material-light-theme($app-primary, $app-accent, $app-warn, $status-colors);
+@function extend-mat-dark-theme($primary, $accent, $error, $status) {
+  $mat-theme: mat-dark-theme($primary, $accent, $error);
+
+  @return map-merge($mat-theme, (primary-states: generate-state-colors(mat-color($primary)),
+      accent-states: generate-state-colors(mat-color($accent)),
+      alert-states: generate-state-colors(map-get($status, alert)),
+      warn-states: generate-state-colors(map-get($status, warn)),
+      error-states: generate-state-colors(mat-color($error)),
+      success-states: generate-state-colors(map-get($status, success)),
+      std-white: map-get($status, std-white),
+      std-black: map-get($status, std-black),
+      handset: "(max-width: 600px) and (orientation: portrait)"
+    ));
+}
+
+@function generate-material-dark-theme($primaryPalette, $accentPalette, $warnPalette, $statusColors, $darkBackground:#1d2331) {
+  $dark-theme: extend-mat-dark-theme($primaryPalette, $accentPalette, $warnPalette, $statusColors);
+
+  $mat-dark-theme-background-overrides: ('background': $darkBackground,
+      card: #283042,
+      dialog: #283042,
+      raised-button: #283042,
+      selected-disabled-button: #283042,
+      app-bar: #283042,
+      focused-button: rgba(255, 255, 255, 0.08));
+  $mat-dark-theme-foreground-overrides: ('disabled-button': rgba(black, 0.38),
+      'icon': rgba(black, 0.6),
+      'icons': rgba(black, 0.6),
+      'base': #FFFFFFC4,
+      'text': #FFFFFFC4);
+
+  $background-map: map-get($dark-theme, background);
+  $foreground-map: map-get($dark-theme, foreground);
+  $merged-dark-background: map-merge($background-map, $mat-dark-theme-background-overrides);
+  $merged-dark-foreground: map-merge($foreground-map, $mat-dark-theme-foreground-overrides);
+  $dark-theme: map-merge($dark-theme,
+      ('background': $merged-dark-background,
+        'foreground': $merged-dark-foreground));
+
+  @debug $merged-dark-background;
+
+  @return $dark-theme;
+}
+
+$app-theme: generate-material-dark-theme($app-primary, $app-accent, $app-warn, $status-colors);
 
 @include angular-material-theme($app-theme);
 @include components-theme($app-theme);

@@ -1,11 +1,9 @@
 .budget-item {
   display: grid;
   grid-template-columns: auto 100px 100px 100px;
-  height: 28px;
+  height: 36px;
   padding: 0 24px;
   padding-left: 40px;
-
-  .category-name {}
 
   .currency {
     justify-self: end;

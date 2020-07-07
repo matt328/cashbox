@@ -3,6 +3,7 @@
   $foreground-palette: map-get($theme, foreground);
 
   $background-color: map-get($background-palette, hover);
+  $header-background-color: map-get($background-palette, focused-button);
   $divider-color: map-get($foreground-palette, divider);
 
   $handset: map-get($theme, handset);
@@ -19,21 +20,31 @@
       }
     }
 
-    .list-item {
-      border-bottom: solid 1px $divider-color;
-    }
-
     .expansion-header {
-      background-color: $background-color;
+      background-color: $header-background-color;
       border-bottom: solid 1px $divider-color;
       border-top: solid 1px $divider-color;
 
       &:hover {
-        background-color: $background-color;
+        background-color: $header-background-color;
+      }
+
+      &.header-collapsed {
+        border-bottom: none;
+
+        &:hover {
+          background-color: $header-background-color !important;
+        }
       }
 
       &.mat-expanded {
-        background-color: $background-color !important;
+        background-color: $header-background-color !important;
+      }
+    }
+
+    .mat-expansion-panel-content {
+      .cbx-budget-item:nth-child(even) {
+        background-color: $background-color;
       }
     }
   }

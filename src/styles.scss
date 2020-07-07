@@ -36,12 +36,12 @@ $warn-color: map-get($warn-states, base);
   padding: 0 10px;
   border-radius: 10px;
   background-color: $base;
-  color: white;
+  color: #ffffffc4;
 }
 
 .red-pill {
   padding: 0 10px;
   border-radius: 10px;
   background-color: $alert-color;
-  color: white;
+  color: #ffffffc4;
 }

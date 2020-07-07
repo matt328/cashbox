@@ -1,1 +1,3 @@
-<cbx-budget-item-list [budgetItems]="(budgetFacade.currentBudgetItems$ | async)!"></cbx-budget-item-list>
+<mat-card class="mat-typography cbx-budget-component">
+  <cbx-budget-item-list [budgetItems]="(budgetFacade.currentBudgetItems$ | async)!"></cbx-budget-item-list>
+</mat-card>

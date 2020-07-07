@@ -3,6 +3,7 @@
   hideToggle
   [expanded]="'true'">
   <mat-expansion-panel-header class="expansion-header"
+    [ngClass]="{'header-collapsed': !matExpansionPanel.expanded}"
     (click)="expandPanel(matExpansionPanel, $event)"
     [collapsedHeight]="'36px'"
     [expandedHeight]="'36px'">
@@ -28,18 +29,19 @@
       <span class="currency no-handset">{{budgetItem.activity | currency}}</span>
       <span [ngClass]="{'currency': true, 'red-pill': budgetItem.available <= 0, 'green-pill': budgetItem.available > 0}">{{ budgetItem.available | currency}}</span>
     </span>
+    <sat-popover #popover
+      verticalAlign="below"
+      [hasBackdrop]="true"
+      backdropClass="budget-group-backdrop">
+      <cbx-value-form (cancel)="popover.close()"
+        [name]="'Name'"
+        (valueCreated)="newBudgetItemRequested.emit({categoryId: budgetItem.categoryId, name: $event})">
+      </cbx-value-form>
+    </sat-popover>
   </mat-expansion-panel-header>
   <cbx-budget-item *ngFor="let child of budgetItem.children"
+    class="cbx-budget-item"
     [budgetItem]="child"
     (budgetedAmountUpdated)="budgetItemAmountUpdated.emit($event)">
   </cbx-budget-item>
-  <sat-popover #popover
-    verticalAlign="below"
-    [hasBackdrop]="true"
-    backdropClass="budget-group-backdrop">
-    <cbx-value-form (cancel)="popover.close()"
-      [name]="'Name'"
-      (valueCreated)="newBudgetItemRequested.emit({categoryId: budgetItem.categoryId, name: $event})">
-    </cbx-value-form>
-  </sat-popover>
 </mat-expansion-panel>
