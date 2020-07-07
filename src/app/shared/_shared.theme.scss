@@ -1,0 +1,5 @@
+@import './inline-edit/inline-edit.theme';
+
+@mixin shared-theme($theme) {
+  @include inline-edit-theme($theme);
+}

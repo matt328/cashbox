@@ -1,7 +1,9 @@
 @import '../app/app.component.theme';
 @import '../app/features/features.theme';
+@import '../app/shared/shared.theme';
 
 @mixin components-theme($theme) {
   @include app-component-theme($theme);
   @include features-theme($theme);
+  @include shared-theme($theme);
 }

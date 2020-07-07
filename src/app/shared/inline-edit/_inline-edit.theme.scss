@@ -1,0 +1,13 @@
+@mixin inline-edit-theme($theme) {
+  $background-palette: map-get($theme, background);
+  $background-color: map-get($background-palette, focused-button);
+  $foreground-palette: map-get($theme, foreground);
+  $divider-color: map-get($foreground-palette, divider);
+
+  .inline-edit {
+    .value-input {
+      border-bottom: solid 1px $divider-color !important;
+      background-color: $background-color;
+    }
+  }
+}
