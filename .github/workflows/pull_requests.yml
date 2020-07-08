@@ -5,17 +5,14 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [13.x]
 
     steps:
       - uses: actions/checkout@v1
 
-      - name: Node $
+      - name: Node 13.12.0
         uses: actions/setup-node@v1
         with:
-          node-version: $
+          node-version: 13.12.0
 
       - name: npm install and npm run build
         run: |
