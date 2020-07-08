@@ -37,5 +37,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-
-// TODO: Abstract AngularFireAuthGuardModule
