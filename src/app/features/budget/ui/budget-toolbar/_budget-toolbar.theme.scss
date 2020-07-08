@@ -1,0 +1,16 @@
+@mixin budget-toolbar-theme($theme) {
+  $handset: map-get($theme, handset);
+
+  .cbx-budget-toolbar {
+    @media #{$handset} {
+      .page-title {
+        display: none;
+        visibility: hidden;
+      }
+
+      .month-selector {
+        margin: auto !important;
+      }
+    }
+  }
+}

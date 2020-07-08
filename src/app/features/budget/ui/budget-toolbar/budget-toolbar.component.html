@@ -3,7 +3,7 @@
     (click)="sidenavService.sidenav?.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  <h2>Budgets</h2>
+  <h2 class="page-title">Budgets</h2>
   <cbx-month-selector pageToolbar
     class="month-selector"
     [availableMonths]="(budgetFacade.budgetSummaries$ | async)!"
