@@ -1,5 +1,5 @@
 @import './main/main.component.theme';
-@import './budget/ui/budget.theme';
+@import './budget/budget.theme';
 
 @mixin features-theme($theme) {
   @include main-theme($theme);

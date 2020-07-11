@@ -6,8 +6,8 @@
   <h2 class="page-title">Budgets</h2>
   <cbx-month-selector pageToolbar
     class="month-selector"
-    [availableMonths]="(budgetFacade.budgetSummaries$ | async)!"
-    [selectedMonth]="(budgetFacade.currentBudget$ | async)!"
-    (monthSelected)="budgetFacade.selectBudget($event)">
+    [availableMonths]="(budgetToolbarFacade.budgetSummaries$ | async)!"
+    [selectedMonth]="(currentBudget$ | async)!"
+    (monthSelected)="selectBudget($event)">
   </cbx-month-selector>
 </mat-toolbar>

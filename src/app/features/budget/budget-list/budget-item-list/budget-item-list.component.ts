@@ -6,6 +6,7 @@ import { BudgetItemListFacade } from './budget-item-list.facade';
   selector: 'cbx-budget-item-list',
   templateUrl: './budget-item-list.component.html',
   styleUrls: ['./budget-item-list.component.scss'],
+  providers: [BudgetItemListFacade],
   encapsulation: ViewEncapsulation.None,
 })
 export class BudgetItemListComponent {

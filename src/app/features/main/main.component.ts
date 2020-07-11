@@ -18,9 +18,7 @@ export class MainComponent implements AfterViewInit {
     shareReplay()
   );
 
-  constructor(private breakpointObserver: BreakpointObserver, private sidenavService: SidenavService) {
-    log.debug('constructed main component');
-  }
+  constructor(private breakpointObserver: BreakpointObserver, private sidenavService: SidenavService) {}
 
   ngAfterViewInit(): void {
     this.sidenavService.sidenav = this.matSidenav;

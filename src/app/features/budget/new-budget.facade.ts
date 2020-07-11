@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BudgetItem, ClientBudgetItem } from '@core/models';
+import { BudgetItem, Category, CategoryUI, ClientBudgetItem } from '@core/models';
 import { NewBudgetItemsService, NewCategoriesService } from '@core/services';
-import { Category, CategoryUI } from '@shared/categories';
 import { arrayToTree, Item } from 'performant-array-to-tree';
 import { groupBy } from 'ramda';
 import { combineLatest, EMPTY, Observable, pipe } from 'rxjs';
