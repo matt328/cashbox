@@ -109,8 +109,6 @@ $app-warn: mat-palette($md-warn);
       ('background': $merged-dark-background,
         'foreground': $merged-dark-foreground));
 
-  @debug $merged-dark-background;
-
   @return $dark-theme;
 }
 
