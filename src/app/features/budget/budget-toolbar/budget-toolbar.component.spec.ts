@@ -1,7 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
-import { of } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { Mock } from 'ts-mocks';
 import { BudgetToolbarComponent } from './budget-toolbar.component';
 import { BudgetToolbarFacade } from './budget-toolbar.facade';
@@ -14,7 +14,9 @@ describe('BudgetToolbarComponent', () => {
   let activatedRoute: Mock<ActivatedRoute>;
 
   beforeEach(() => {
-    budgetToolbarFacade = new Mock<BudgetToolbarFacade>({});
+    budgetToolbarFacade = new Mock<BudgetToolbarFacade>({
+      budgetSummaries$: EMPTY,
+    });
     router = new Mock<Router>({
       navigate: () => Promise.resolve(true),
     });

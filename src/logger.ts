@@ -1,8 +1,10 @@
 const debugLog = (() => {
+  // tslint:disable-next-line: no-console
   return Function.prototype.bind.call(console.debug, console, '%c%o', 'color: rgb(110,171,206)');
 })();
 
 const infoLog = (() => {
+  // tslint:disable-next-line: no-console
   return Function.prototype.bind.call(console.info, console, '%o');
 })();
 

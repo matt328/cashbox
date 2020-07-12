@@ -1,9 +1,9 @@
-name: Build
+name: Test
 on:
   pull_request:
 
 jobs:
-  lint:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: npm install and npm run build
+      - name: Install Dependencies and Lint
         run: |
           npm ci
           npm run lint
