@@ -1,4 +1,4 @@
-import { BudgetComponent } from './ui/budget.component';
+import { BudgetComponent } from './budget.component';
 
 export default { title: 'Budget Component' };
 

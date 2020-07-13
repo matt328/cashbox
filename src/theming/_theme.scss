@@ -54,8 +54,7 @@ $app-warn: mat-palette($md-warn);
   $mat-light-theme-background-overrides: ('background': $lightBackground,
     );
   $mat-light-theme-foreground-overrides: ('disabled-button': rgba(black, 0.38),
-      'icon': rgba(black, 0.6),
-      'icons': rgba(black, 0.6),
+
     );
 
   $background-map: map-get($light-theme, background);
@@ -96,8 +95,8 @@ $app-warn: mat-palette($md-warn);
       app-bar: #283042,
       focused-button: rgba(255, 255, 255, 0.08));
   $mat-dark-theme-foreground-overrides: ('disabled-button': rgba(black, 0.38),
-      'icon': rgba(black, 0.6),
-      'icons': rgba(black, 0.6),
+      'icon': rgba(white, 0.6),
+      'icons': rgba(white, 0.6),
       'base': #FFFFFFC4,
       'text': #FFFFFFC4);
 

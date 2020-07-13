@@ -26,7 +26,7 @@ export class BudgetToolbarComponent {
     this.currentBudget$ = currentBudgetId$.pipe(
       mergeMap((id: string) =>
         this.budgetToolbarFacade.budgetSummaries$.pipe(
-          map((budgets: ClientBudget[]) => budgets.filter((budget) => budget.id === id)[0])
+          map((budgets: ClientBudget[]) => budgets.find((budget) => budget.id === id))
         )
       )
     );
@@ -34,5 +34,13 @@ export class BudgetToolbarComponent {
 
   selectBudget(budgetId: string): void {
     this.ngZone.run(() => this.router.navigate(['budgets', budgetId]));
+  }
+
+  async menuItemSelected(item: 'ITEM1' | 'PREFERENCES' | 'SIGN_OUT'): Promise<void> {
+    log.debug('Menu Item Selected: ', item);
+    if (item === 'SIGN_OUT') {
+      await this.budgetToolbarFacade.signOut();
+      this.ngZone.run(() => this.router.navigate(['login']));
+    }
   }
 }

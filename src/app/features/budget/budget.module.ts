@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { SatPopoverModule } from '@ncstate/sat-popover';
+import { CurrentUserModule } from '@shared/current-user';
 import { InlineEditModule } from '@shared/inline-edit';
 import { ValueFormModule } from '@shared/value-form';
 import { BudgetItemGroupComponent } from './budget-list/budget-item-group/budget-item-group.component';
@@ -40,6 +41,7 @@ import { MonthSelectorComponent } from './month-selector/month-selector.componen
     SatPopoverModule,
     ValueFormModule,
     InlineEditModule,
+    CurrentUserModule,
   ],
   declarations: [
     BudgetComponent,

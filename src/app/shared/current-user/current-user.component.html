@@ -1,0 +1,23 @@
+<div class="cbx-current-user mat-typography">
+  <button mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="User Menu">
+    <img class="image"
+      [src]="imageSource">
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item
+      (click)="menuItemSelected.next('ITEM1')">Item 1</button>
+    <button mat-menu-item
+      (click)="menuItemSelected.next('PREFERENCES')">
+      <mat-icon svgIcon="tune"></mat-icon>
+      <span>Preferences</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item
+      (click)="menuItemSelected.next('SIGN_OUT')">
+      <mat-icon svgIcon="logout"></mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+</div>

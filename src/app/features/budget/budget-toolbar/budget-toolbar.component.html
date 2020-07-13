@@ -10,4 +10,11 @@
     [selectedMonth]="(currentBudget$ | async)!"
     (monthSelected)="selectBudget($event)">
   </cbx-month-selector>
+  <span *ngIf="budgetToolbarFacade.currentUser$ | async as user">
+    <cbx-current-user [imageSource]="user?.photoUrl"
+      [userName]="user?.displayName"
+      [email]="user?.email"
+      (menuItemSelected)="menuItemSelected($event)">
+    </cbx-current-user>
+  </span>
 </mat-toolbar>
