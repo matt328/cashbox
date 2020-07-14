@@ -10,7 +10,8 @@
     [selectedMonth]="(currentBudget$ | async)!"
     (monthSelected)="selectBudget($event)">
   </cbx-month-selector>
-  <span *ngIf="budgetToolbarFacade.currentUser$ | async as user">
+  <span *ngIf="budgetToolbarFacade.currentUser$ | async as user"
+    class="right-align">
     <cbx-current-user [imageSource]="user?.photoUrl"
       [userName]="user?.displayName"
       [email]="user?.email"
