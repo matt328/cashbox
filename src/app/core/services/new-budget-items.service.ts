@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { BudgetItem } from '@core/models';
-import { Observable } from 'rxjs';
+import { BudgetItem, Category } from '@core/models';
+import { Transaction } from '@firebase/firestore-types';
+import { defer, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 const CollectionName = 'budgetitems';
@@ -19,6 +20,27 @@ export class NewBudgetItemsService {
           id: action.payload.doc.id,
         }));
       })
+    );
+  }
+
+  createCategory(budgetId: string, category: Partial<Category>): Observable<void> {
+    const id = this.afs.createId();
+    const budgetItemId = this.afs.createId();
+    const budgetRef = this.afs.collection<BudgetItem[]>(CollectionName).doc<BudgetItem>(budgetItemId).ref;
+    const categoryRef = this.afs.collection<Category>('categories').doc(id).ref;
+
+    return defer(() =>
+      this.afs.firestore.runTransaction(async (transaction: Transaction) => {
+        const categoryDoc = await transaction.get(categoryRef);
+        transaction.set(budgetRef, { categoryId: categoryDoc.id, budgetId });
+        transaction.set(categoryRef, { ...category });
+      })
+    );
+  }
+
+  updateBudgetItemAmount(budgetId: string, updatedAmount: number): Observable<void> {
+    return defer(() =>
+      this.afs.collection<BudgetItem[]>(CollectionName).doc<BudgetItem>(budgetId).update({ amount: updatedAmount })
     );
   }
 }

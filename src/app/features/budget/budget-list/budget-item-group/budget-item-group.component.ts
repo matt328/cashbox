@@ -12,6 +12,11 @@ const defaultBudgetItem: ClientBudgetItem = {
   children: [],
 };
 
+export interface NewBudgetItemInfo {
+  categoryId: string;
+  name: string;
+}
+
 @Component({
   selector: 'cbx-budget-item-group',
   templateUrl: './budget-item-group.component.html',
@@ -20,7 +25,7 @@ const defaultBudgetItem: ClientBudgetItem = {
 })
 export class BudgetItemGroupComponent {
   @Input() budgetItem: ClientBudgetItem = defaultBudgetItem;
-  @Output() newBudgetItemRequested = new EventEmitter<{ categoryId: string; name: string }>();
+  @Output() newBudgetItemRequested = new EventEmitter<NewBudgetItemInfo>();
   @Output() budgetItemAmountUpdated = new EventEmitter<{ budgetItemId: string; newAmount: number }>();
 
   expandPanel(matExpansionPanel: MatExpansionPanel, event: Event): void {

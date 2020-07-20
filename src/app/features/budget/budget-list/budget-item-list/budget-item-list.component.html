@@ -16,8 +16,8 @@
   </span>
   <cbx-budget-item-group *ngFor="let budgetItem of budgetItems"
     [budgetItem]="budgetItem"
-    (newBudgetItemRequested)="budgetItemListFacade.createBudgetItem($event)"
-    (budgetItemAmountUpdated)="budgetItemListFacade.updateBudgetItemAmount($event)">
+    (newBudgetItemRequested)="createEmptyItemInGroup($event)"
+    (budgetItemAmountUpdated)="updateBudgetItemAmount($event)">
   </cbx-budget-item-group>
   <sat-popover #popover
     verticalAlign="below"
@@ -25,7 +25,7 @@
     backdropClass="budget-group-backdrop">
     <cbx-value-form (cancel)="popover.close()"
       [name]="'Name'"
-      (valueCreated)="budgetItemListFacade.createBudgetItemGroup($event)">
+      (valueCreated)="createEmptyItemGroup($event, popover)">
     </cbx-value-form>
   </sat-popover>
 </span>
