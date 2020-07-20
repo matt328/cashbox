@@ -1,0 +1,14 @@
+:host {
+  z-index: 100;
+  position: sticky;
+}
+
+.cbx-budget-toolbar {
+  .month-selector {
+    margin-left: 64px;
+  }
+
+  .right-align {
+    margin-left: auto;
+  }
+}

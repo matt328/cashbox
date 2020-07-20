@@ -1,3 +1,3 @@
 export { Budget, BudgetItem, ClientBudget, ClientBudgetItem } from './budget';
-export { GlobalState } from './state';
+export { Category, CategoryUI } from './category';
 export { User } from './user';

@@ -12,22 +12,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { SatPopoverModule } from '@ncstate/sat-popover';
-import { CategoriesModule } from '@shared/categories';
+import { CurrentUserModule } from '@shared/current-user';
 import { InlineEditModule } from '@shared/inline-edit';
 import { ValueFormModule } from '@shared/value-form';
+import { BudgetItemGroupComponent } from './budget-list/budget-item-group/budget-item-group.component';
+import { BudgetItemListComponent } from './budget-list/budget-item-list/budget-item-list.component';
+import { BudgetItemComponent } from './budget-list/budget-item/budget-item.component';
 import { BudgetRoutingModule } from './budget-routing.module';
-import { BudgetRxModule } from './store/budget-rx.module';
-import { BudgetItemGroupComponent } from './ui/budget-list/budget-item-group/budget-item-group.component';
-import { BudgetItemListComponent } from './ui/budget-list/budget-item-list/budget-item-list.component';
-import { BudgetItemComponent } from './ui/budget-list/budget-item/budget-item.component';
-import { BudgetToolbarComponent } from './ui/budget-toolbar/budget-toolbar.component';
-import { BudgetComponent } from './ui/budget.component';
-import { MonthSelectorComponent } from './ui/month-selector/month-selector.component';
+import { BudgetToolbarComponent } from './budget-toolbar/budget-toolbar.component';
+import { BudgetComponent } from './budget.component';
+import { MonthSelectorComponent } from './month-selector/month-selector.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    BudgetRxModule,
     BudgetRoutingModule,
     RouterModule,
     MatButtonModule,
@@ -36,7 +34,6 @@ import { MonthSelectorComponent } from './ui/month-selector/month-selector.compo
     MatIconModule,
     MatSelectModule,
     MatFormFieldModule,
-    CategoriesModule,
     MatToolbarModule,
     MatTooltipModule,
     MatInputModule,
@@ -44,6 +41,7 @@ import { MonthSelectorComponent } from './ui/month-selector/month-selector.compo
     SatPopoverModule,
     ValueFormModule,
     InlineEditModule,
+    CurrentUserModule,
   ],
   declarations: [
     BudgetComponent,

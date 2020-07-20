@@ -1,0 +1,21 @@
+<mat-toolbar class="cbx-budget-toolbar mat-elevation-z4">
+  <button mat-icon-button
+    (click)="sidenavService.sidenav?.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h2 class="page-title">Budgets</h2>
+  <cbx-month-selector pageToolbar
+    class="month-selector"
+    [availableMonths]="(budgetToolbarFacade.budgetSummaries$ | async)!"
+    [selectedMonth]="(currentBudget$ | async)!"
+    (monthSelected)="selectBudget($event)">
+  </cbx-month-selector>
+  <span *ngIf="budgetToolbarFacade.currentUser$ | async as user"
+    class="right-align">
+    <cbx-current-user [imageSource]="user?.photoUrl"
+      [userName]="user?.displayName"
+      [email]="user?.email"
+      (menuItemSelected)="menuItemSelected($event)">
+    </cbx-current-user>
+  </span>
+</mat-toolbar>

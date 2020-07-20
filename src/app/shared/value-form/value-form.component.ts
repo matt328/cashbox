@@ -22,8 +22,6 @@ export class ValueFormComponent {
     this.valueCreated.emit(value);
   }
 
-  onCancel(): void {}
-
   private prepareSaveValue(): string {
     const formModel = this.valueForm.value;
     return formModel.value as string;

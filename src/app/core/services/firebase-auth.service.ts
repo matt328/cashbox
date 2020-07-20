@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth, User as FirebaseUser } from 'firebase/app';
 import { BehaviorSubject, pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, share } from 'rxjs/operators';
 import { User } from '../models';
 
 const toUser = pipe(
@@ -23,7 +23,7 @@ const toUser = pipe(
 @Injectable()
 export class FirebaseAuthService {
   private user = new BehaviorSubject<FirebaseUser | null>(null);
-  user$ = this.user.pipe(toUser);
+  user$ = this.user.pipe(toUser, share());
 
   constructor(private angularFireAuth: AngularFireAuth) {
     log.info('Constructed Firebase Auth Service');
@@ -41,5 +41,9 @@ export class FirebaseAuthService {
       log.error('Error logging in: ', error);
     }
     return result;
+  }
+
+  signOut(): Promise<void> {
+    return this.angularFireAuth.signOut();
   }
 }

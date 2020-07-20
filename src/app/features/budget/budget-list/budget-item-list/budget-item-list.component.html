@@ -1,0 +1,31 @@
+<span class="budget-item-list">
+  <span class="header">
+    <span class="first category-row">Category
+      <button mat-icon-button
+        class="category-button"
+        [satPopoverAnchor]='popover'
+        (click)="popover.toggle()"
+        matTooltip="Add a new Group">
+        <mat-icon class="add-icon"
+          svgIcon="folder-plus-outline"></mat-icon>
+      </button>
+    </span>
+    <span class="currency-header">Budgeted</span>
+    <span class="currency-header no-handset">Activity</span>
+    <span class="currency-header">Available</span>
+  </span>
+  <cbx-budget-item-group *ngFor="let budgetItem of budgetItems"
+    [budgetItem]="budgetItem"
+    (newBudgetItemRequested)="createEmptyItemInGroup($event)"
+    (budgetItemAmountUpdated)="updateBudgetItemAmount($event)">
+  </cbx-budget-item-group>
+  <sat-popover #popover
+    verticalAlign="below"
+    [hasBackdrop]="true"
+    backdropClass="budget-group-backdrop">
+    <cbx-value-form (cancel)="popover.close()"
+      [name]="'Name'"
+      (valueCreated)="createEmptyItemGroup($event, popover)">
+    </cbx-value-form>
+  </sat-popover>
+</span>

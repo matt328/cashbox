@@ -1,26 +1,24 @@
+const debugLog = (() => {
+  // tslint:disable-next-line: no-console
+  return Function.prototype.bind.call(console.debug, console, '%c%o', 'color: rgb(110,171,206)');
+})();
+
+const infoLog = (() => {
+  // tslint:disable-next-line: no-console
+  return Function.prototype.bind.call(console.info, console, '%o');
+})();
+
+const warnLog = (() => {
+  return Function.prototype.bind.call(console.warn, console, '%o');
+})();
+
+const errorLog = (() => {
+  return Function.prototype.bind.call(console.error, console, '%o');
+})();
+
 window.log = {
-  debug(): void {
-    const args = [...arguments];
-    args[0] = '%c' + args[0];
-    args.splice(1, 0, 'color: rgb(110,171,206)');
-    console.log.apply(console, args);
-  },
-  info(): void {
-    const args = [...arguments];
-    args[0] = '%c' + args[0];
-    args.splice(1, 0, 'color: rgb(75,154,137');
-    console.log.apply(console, args);
-  },
-  warn(): void {
-    const args = [...arguments];
-    args[0] = '%c' + args[0];
-    args.splice(1, 0, 'color: rgb(201,200,137)');
-    console.log.apply(console, args);
-  },
-  error(): void {
-    const args = [...arguments];
-    args[0] = '%c' + args[0];
-    args.splice(1, 0, 'color: rgb(165,106,102');
-    console.log.apply(console, args);
-  },
+  debug: debugLog,
+  info: infoLog,
+  warn: warnLog,
+  error: errorLog,
 };

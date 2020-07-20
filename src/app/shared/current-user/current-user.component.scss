@@ -1,0 +1,14 @@
+:host {
+  display: inline-block;
+}
+
+.cbx-current-user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .image {
+    border-radius: 50%;
+    max-width: 36px
+  }
+}
