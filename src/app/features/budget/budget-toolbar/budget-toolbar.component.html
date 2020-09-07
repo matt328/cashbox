@@ -6,11 +6,11 @@
   <h2 class="page-title">Budgets</h2>
   <cbx-month-selector pageToolbar
     class="month-selector"
-    [availableMonths]="(budgetToolbarFacade.budgetSummaries$ | async)!"
+    [availableMonths]="(facade.budgetSummaries$ | async)!"
     [selectedMonth]="(currentBudget$ | async)!"
-    (monthSelected)="selectBudget($event)">
+    (monthSelected)="monthSelected$.next($event)">
   </cbx-month-selector>
-  <span *ngIf="budgetToolbarFacade.currentUser$ | async as user"
+  <span *ngIf="facade.currentUser$ | async as user"
     class="right-align">
     <cbx-current-user [imageSource]="user?.photoUrl"
       [userName]="user?.displayName"
