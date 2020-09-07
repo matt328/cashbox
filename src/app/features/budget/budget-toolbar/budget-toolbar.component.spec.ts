@@ -16,6 +16,7 @@ describe('BudgetToolbarComponent', () => {
   beforeEach(() => {
     budgetToolbarFacade = new Mock<BudgetToolbarFacade>({
       budgetSummaries$: EMPTY,
+      currentUser$: EMPTY,
     });
     router = new Mock<Router>({
       navigate: () => Promise.resolve(true),
