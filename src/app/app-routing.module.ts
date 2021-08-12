@@ -33,7 +33,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [AngularFireAuthGuardModule, RouterModule.forRoot(routes, { useHash: false, enableTracing: false })],
+  imports: [
+    AngularFireAuthGuardModule,
+    RouterModule.forRoot(routes, { useHash: false, enableTracing: false, relativeLinkResolution: 'legacy' }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
