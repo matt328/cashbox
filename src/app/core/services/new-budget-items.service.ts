@@ -32,7 +32,7 @@ export class NewBudgetItemsService {
     return defer(() =>
       this.afs.firestore.runTransaction(async (transaction: Transaction) => {
         const categoryDoc = await transaction.get(categoryRef);
-        transaction.set(budgetRef, { categoryId: categoryDoc.id, budgetId });
+        transaction.set(budgetRef, { categoryId: categoryDoc.id, budgetId } as Partial<BudgetItem>);
         transaction.set(categoryRef, { ...category });
       })
     );

@@ -15,7 +15,7 @@ export class BudgetToolbarFacade {
       return userId ? this.prefService.getPreferences(userId) : EMPTY;
     })
   );
-  prefsCurrentBudget$: Observable<string> = this.prefs$.pipe(pluck('selectedBudgetId'));
+  prefsCurrentBudget$: Observable<string> = this.prefs$.pipe(pluck('selectedBudgetId')) as Observable<string>;
 
   constructor(
     private budgetService: BudgetService,

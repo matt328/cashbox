@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth, User as FirebaseUser } from 'firebase/app';
+import firebase from 'firebase/app';
 import { BehaviorSubject, pipe } from 'rxjs';
 import { map, share } from 'rxjs/operators';
 import { User } from '../models';
 
 const toUser = pipe(
-  map((fb: FirebaseUser | null): User | null => {
+  map((fb: firebase.User | null): User | null => {
     if (fb === null) {
       return null;
     } else {
@@ -22,7 +22,7 @@ const toUser = pipe(
 
 @Injectable()
 export class FirebaseAuthService {
-  private user = new BehaviorSubject<FirebaseUser | null>(null);
+  private user = new BehaviorSubject<firebase.User | null>(null);
   user$ = this.user.pipe(toUser, share());
 
   constructor(private angularFireAuth: AngularFireAuth) {
@@ -35,7 +35,7 @@ export class FirebaseAuthService {
   async signInWithPopup(): Promise<boolean> {
     let result = true;
     try {
-      await this.angularFireAuth.signInWithPopup(new auth.GoogleAuthProvider());
+      await this.angularFireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     } catch (error) {
       result = false;
       log.error('Error logging in: ', error);
