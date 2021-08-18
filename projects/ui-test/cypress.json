@@ -4,8 +4,7 @@
   "integrationFolder": "./src/integration",
   "pluginsFile": "./src/plugins/index",
   "supportFile": false,
-  "video": true,
-  "videosFolder": "../../dist/cypress/cashbox-ui-test/videos",
+  "video": false,
   "screenshotsFolder": "../../dist/cypress/cashbox-ui-test/screenshots",
   "chromeWebSecurity": false
 }

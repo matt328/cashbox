@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: '13.x'
+          node-version: '14.15.0'
       - run: npm ci
       - run: npm run build:prod
       - uses: w9jds/firebase-action@master
