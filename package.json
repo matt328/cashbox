@@ -71,7 +71,7 @@
     "@types/jasminewd2": "^2.0.10",
     "@types/node": "^16.7.1",
     "@types/ramda": "^0.27.44",
-    "autoprefixer": "^10.3.2",
+    "autoprefixer": "^10.4.11",
     "babel-loader": "^8.2.2",
     "codelyzer": "^6.0.0",
     "commitizen": "^4.2.4",
